@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colored Responsive Boxes</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .grid {
+    display: grid;
+    gap: 15px;
+    padding: 20px;
+
+    /* Desktop layout */
+    grid-template-columns: repeat(2, 1fr); /* Boxes 5–8 half-width */
+  }
+
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    padding: 20px
+    box-sizing: border-box;
+    color: #000;
+  }
+
+  /* Colors */
+  .box1 { background-color: #A6EB52; height: 240px; color: white; }
+  .normal { background-color: #4AFFF7; height: 120px; }
+  .small { background-color: #d3d3d3; height: 90px; }
+
+  /* Full-width boxes 1–4 */
+  .full { grid-column: 1 / -1; }
+
+  /* Responsive: width < 720px */
+  @media (max-width: 720px) {
+    .grid {
+      grid-template-columns: repeat(12, 1fr); /* 12-column grid */
+    }
+
+    .box1 { grid-column: 1 / -1; }
+    .normal { grid-column: span 4; } /* Boxes 2–4 same elevation */
+    .small { grid-column: span 3; }  /* Boxes 5–8 same elevation */
+  }
+</style>
+</head>
+<body>
+
+<div class="grid">
+  <div class="box box1 full"></div>
+  <div class="box normal full"></div>
+  <div class="box normal full"></div>
+  <div class="box normal full"></div>
+  <div class="box small"></div>
+  <div class="box small"></div>
+  <div class="box small"></div>
+  <div class="box small"></div>
+</div>
+
+</body>
+</html>
