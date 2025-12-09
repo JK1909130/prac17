@@ -51,13 +51,17 @@
   /* ===== MOBILE (<720px) — reversed layout ===== */
   @media (max-width: 720px) {
     .grid {
-      grid-template-columns: repeat(2, 1fr); /* 2-column grid (half-width items) */
+      grid-template-columns: 1fr; /* 1-column grid for mobile (full width items) */
     }
 
     /* On mobile: all boxes (normal and small) should take full width */
-    .normal,
+    .normal {
+      grid-column: 1 / -1; /* Full width for blue boxes */
+    }
+
+    /* Gray boxes in 2x2 formation (2 columns each on mobile) */
     .small {
-      grid-column: 1 / -1;
+      grid-column: span 6; /* Each gray box takes 6 columns (2x2 formation) */
     }
   }
 </style>
