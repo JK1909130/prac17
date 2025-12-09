@@ -51,17 +51,17 @@
   /* ===== MOBILE (<720px) — reversed layout ===== */
   @media (max-width: 720px) {
     .grid {
-      grid-template-columns: repeat(2, 1fr); /* 2-column grid for mobile (half-width items) */
+      grid-template-columns: 1fr 1fr; /* 2-column grid for mobile (half-width items) */
     }
 
-    /* On mobile: all boxes (normal and small) should take full width */
+    /* Blue boxes stack vertically, full width */
     .normal {
       grid-column: 1 / -1; /* Full width for blue boxes */
     }
 
-    /* Gray boxes in 2x2 formation (2 columns each on mobile) */
+    /* Gray boxes in 2x2 formation (2 columns per row) */
     .small {
-      grid-column: span 6; /* Each gray box takes 6 columns (2x2 formation) */
+      grid-column: span 1; /* Each gray box takes 6 columns (2x2 formation) */
     }
   }
 </style>
@@ -69,15 +69,15 @@
 <body>
 
 <div class="grid">
-  <div class="box box1 full">Box 1</div>
-  <div class="box normal">Box 2</div>
-  <div class="box normal">Box 3</div>
-  <div class="box normal">Box 4</div>
+  <div class="box box1 full"></div>
+  <div class="box normal"></div>
+  <div class="box normal"></div>
+  <div class="box normal"></div>
 
-  <div class="box small">Box 5</div>
-  <div class="box small">Box 6</div>
-  <div class="box small">Box 7</div>
-  <div class="box small">Box 8</div>
+  <div class="box small"></div>
+  <div class="box small"></div>
+  <div class="box small"></div>
+  <div class="box small"></div>
 </div>
 
 </body>
