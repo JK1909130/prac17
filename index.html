@@ -51,7 +51,7 @@
   /* ===== MOBILE (<720px) — reversed layout ===== */
   @media (max-width: 720px) {
     .grid {
-      grid-template-columns: 1fr; /* 1-column grid for mobile (full width items) */
+      grid-template-columns: repeat(2, 1fr); /* 2-column grid for mobile (half-width items) */
     }
 
     /* On mobile: all boxes (normal and small) should take full width */
