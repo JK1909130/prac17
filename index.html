@@ -33,33 +33,40 @@
   .normal { background-color: #4AFFF7; height: 120px; }
   .small { background-color: #d3d3d3; height: 90px; }
 
-  /* Boxes 1–4 full width on both desktop + mobile */
-  .full,
-  .normal {
-    grid-column: 1 / -1;
+  /* Desktop layout (default) */
+  .full {
+    grid-column: 1 / -1; /* Full-width */
   }
 
-  /* Desktop: small boxes are 3 columns */
+  /* The .normal boxes are 3 columns each on desktop */
+  .normal {
+    grid-column: span 3; /* Take 3 out of 12 columns */
+  }
+
+  /* Small boxes are 3 columns (like normal) */
   .small {
     grid-column: span 3;
   }
 
   /* ===== MOBILE (<720px) — reversed layout ===== */
   @media (max-width: 720px) {
-
     .grid {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns → half-width items */
+      grid-template-columns: repeat(2, 1fr); /* 2-column grid (half-width) */
     }
 
-    /* Boxes 1–4 still full width */
-    .full,
-    .normal {
+    /* Boxes 1–4 full width */
+    .full {
       grid-column: 1 / -1;
     }
 
-    /* Small boxes now half width (1 of 2 columns) */
+    /* .normal boxes (the blue ones) stack vertically */
+    .normal {
+      grid-column: 1 / -1; /* Full width in mobile */
+    }
+
+    /* .small boxes also take full width (one box per row) */
     .small {
-      grid-column: span 1;
+      grid-column: 1 / -1;
     }
   }
 </style>
