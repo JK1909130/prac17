@@ -26,7 +26,6 @@
     font-size: 24px;
     padding: 20px;
     box-sizing: border-box;
-    color: #000;
   }
 
   /* Colors */
@@ -34,23 +33,34 @@
   .normal { background-color: #4AFFF7; height: 120px; }
   .small { background-color: #d3d3d3; height: 90px; }
 
-  /* Boxes 1–4 full width */
-  .full { grid-column: 1 / -1; }
+  /* Boxes 1–4 full width on both desktop + mobile */
+  .full,
+  .normal {
+    grid-column: 1 / -1;
+  }
 
-  /* Desktop: boxes 5–8 are "small" → 3 columns each */
-  .small { grid-column: span 3; }
+  /* Desktop: small boxes are 3 columns */
+  .small {
+    grid-column: span 3;
+  }
 
-  /* ==== Mobile (<720px) — REVERSED ==== */
+  /* ===== MOBILE (<720px) — reversed layout ===== */
   @media (max-width: 720px) {
+
     .grid {
-      grid-template-columns: repeat(2, 1fr); /* Half-width grid */
+      grid-template-columns: repeat(2, 1fr); /* 2 columns → half-width items */
     }
 
-    /* Boxes 1–4 full width */
-    .full { grid-column: 1 / -1; }
+    /* Boxes 1–4 still full width */
+    .full,
+    .normal {
+      grid-column: 1 / -1;
+    }
 
-    /* Boxes 5–8 now half width */
-    .small { grid-column: span 1; }
+    /* Small boxes now half width (1 of 2 columns) */
+    .small {
+      grid-column: span 1;
+    }
   }
 </style>
 </head>
@@ -58,9 +68,9 @@
 
 <div class="grid">
   <div class="box box1 full"></div>
-  <div class="box normal full"></div>
-  <div class="box normal full"></div>
-  <div class="box normal full"></div>
+  <div class="box normal"></div>
+  <div class="box normal"></div>
+  <div class="box normal"></div>
 
   <div class="box small"></div>
   <div class="box small"></div>
