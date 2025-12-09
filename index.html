@@ -33,17 +33,17 @@
   .normal { background-color: #4AFFF7; height: 120px; }
   .small { background-color: #d3d3d3; height: 90px; }
 
-  /* Desktop layout (default) */
+  /* Desktop layout */
   .full {
     grid-column: 1 / -1; /* Full-width */
   }
 
-  /* The .normal boxes are 3 columns each on desktop */
+  /* The .normal blue boxes in desktop should be in a row, span 4 columns each */
   .normal {
-    grid-column: span 3; /* Take 3 out of 12 columns */
+    grid-column: span 4; /* 3 boxes span 4 out of 12 columns */
   }
 
-  /* Small boxes are 3 columns (like normal) */
+  /* The .small gray boxes will take 3 columns on desktop */
   .small {
     grid-column: span 3;
   }
@@ -51,20 +51,11 @@
   /* ===== MOBILE (<720px) — reversed layout ===== */
   @media (max-width: 720px) {
     .grid {
-      grid-template-columns: repeat(2, 1fr); /* 2-column grid (half-width) */
+      grid-template-columns: repeat(2, 1fr); /* 2-column grid (half-width items) */
     }
 
-    /* Boxes 1–4 full width */
-    .full {
-      grid-column: 1 / -1;
-    }
-
-    /* .normal boxes (the blue ones) stack vertically */
-    .normal {
-      grid-column: 1 / -1; /* Full width in mobile */
-    }
-
-    /* .small boxes also take full width (one box per row) */
+    /* On mobile: all boxes (normal and small) should take full width */
+    .normal,
     .small {
       grid-column: 1 / -1;
     }
@@ -74,15 +65,15 @@
 <body>
 
 <div class="grid">
-  <div class="box box1 full"></div>
-  <div class="box normal"></div>
-  <div class="box normal"></div>
-  <div class="box normal"></div>
+  <div class="box box1 full">Box 1</div>
+  <div class="box normal">Box 2</div>
+  <div class="box normal">Box 3</div>
+  <div class="box normal">Box 4</div>
 
-  <div class="box small"></div>
-  <div class="box small"></div>
-  <div class="box small"></div>
-  <div class="box small"></div>
+  <div class="box small">Box 5</div>
+  <div class="box small">Box 6</div>
+  <div class="box small">Box 7</div>
+  <div class="box small">Box 8</div>
 </div>
 
 </body>
